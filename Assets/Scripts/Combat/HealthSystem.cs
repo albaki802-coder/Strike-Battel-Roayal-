@@ -34,4 +34,12 @@ public class HealthSystem : MonoBehaviour
         CurrentHealth = Mathf.Min(maxHealth, CurrentHealth + amount);
         HealthChanged?.Invoke(CurrentHealth, maxHealth);
     }
+
+    // Used by practice targets when they respawn.
+    public void RestoreForRespawn()
+    {
+        IsDead = false;
+        CurrentHealth = maxHealth;
+        HealthChanged?.Invoke(CurrentHealth, maxHealth);
+    }
 }
